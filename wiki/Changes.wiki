@@ -1,0 +1,63 @@
+#summary WLCP changelog.
+#labels Featured
+
+= WLCP ChangeLog =
+  * *Version 2009.02.09* (jwlee)
+    * *Usage note:* The entire directory structure has been overhauled since WeLoveChinesePod 2008.10.19.testing.  Lessons are now stored (by default) in a sub-folder called "lessons", and the "settings.txt" file has been replaced by a much more comprehensive "wlcpod.ini" file that allows for considerable tweaking. (As always, things seem to work best under Firefox.)
+    * WLCPod also now generates a pretty looking list of downloaded lessons. By default, these are:
+      * lessons/wlcpod-index.xml: a list of lessons downloaded the last time WLCPod was run
+      * lessons/wlcpod-master-index.xml: a list of all lessons ever downloaded (at least, since switching to this version!)
+    The idea is that one can simply bookmark these two pages in Firefox, and then use them as starting pages when searching for WLCPod'ed lessons instead of manually hunting down directories -- hopefully the lesson pictures and descriptions make recognizing already studied lessons easier!
+    * *Absent-mindedness fix*
+      * the file player_mp3_maxi.swf, required for sound support in the WLCPod pages, is now actually included
+    * *Behavioural changes*
+      * more robust -- doesn't crash with traditional_html is missing or when simplified_html misses structure; also, continues on more gracefully for a lesson when an individual tab is bad
+      * better network error handling -- instead of crashing, now retries after a socket times out or other urlopen error occurs
+      * bug fix: get-[tab]-sentence-mp3s options in wlcpod.ini now properly control MP3 amalgamation; get-simplified-pdf and get-traditional-pdf options now work as well
+      * includes previously downloaded MP3s when concatenating together to form ???-sentences.mp3; also, doesn't crash when an empty MP3 filename in specified in CPod HTML
+    * *Interface changes*
+      * fixed punctuation sizes; also now defaults to better font if installed ("AR PL ZenKai Uni" on Linux and Windows and "BiauKai" on MacOS)
+      * wlcpod.ini is more readable with better documentation
+      * can now specify lessons and index files in wlcpod.ini
+      * rendered WLCPod page now has links to lesson transcript PDFs
+    * *Parsing changes*
+      * pronunciation now uses the same spacing as that on ChinesePod's website, as some pinyin combinations like yángé cannot be unambiguously broken up; as a result, displayed pinyin should also be correct (but bopomofo, when enabled, might not be)
+      *bug fix: in vocabulary sections, fixed problem where incorrect traditional characters were found when one pinyin entry occurs as a substring of a previous one
+
+  * *Version 2009.01.18* (jwlee)
+    * there are tooltips that are actually usable -- they are readable, and contain hyperlinks to various online resources, such as dictionaries and character stroke databases
+    * the dialogue section identifies speakers, the expansion section identifies reviewed characters and vocabulary sections are in tabular form
+    * the generated pages now support sound and look a bit better
+    * there is an XSLT stylesheet to convert from XML to LaTeX to create user-customizable PDFs, as well an option to download the ChinesePod-generated ones
+    * unparsed HTML caching option -- useful for debugging purposes, and so on
+    * index generation -- WLCP now stores a pretty-looking list of downloaded lessons in a file called "wlcpod-index.xml" in the lessons directory to aid in finding lessons
+    * *Usage note:* the entire directory structure has been overhauled.  Lessons are now stored (by default) in a sub-folder called "lessons", and the "settings.txt" file has been replaced by a much more comprehensive "wlcpod.ini" file that allows for considerable tweaking
+
+  * *October 19, 2008 Testing*
+    * Fixes a bug reported by user Chenghongjie regarding Pinyin with missing tone marks in the Vocabulary section.
+    * It automatically downloads the lesson, dialogue, and audio review. For video lessons, for which these mp3 files are not provided, it will download invalid files.
+
+  * *September 14, 2008 Testing*
+    * HTML files are no longer produced. Instead, a single XML file is produced which contains all content including Key & Supplementary Vocabulary, Dialogue, and Expansion sentences. This XML uses XSLT and CSS to control how this content is presented to you. Advanced users can fully customize the presentation by editing welovechinesepod.xsl and welovechinesepod.css to their liking. These XML files appear in the root folder due to a security setting in Firefox involving accessing files from other directories.
+    * The default XSLT stylesheet uses ruby character annotation. (Note, if you don't want to use these, feel free to edit welovechinesepod.xsl). The only browser I found that supports this well is Firefox 3 with the XHTML Ruby Support extension. For the content to display correctly you have to use this extension, which can be downloaded here, and you need to change the settings as follows: In Firefox: Tools->Add-ons, then click on the Preferences button for XHTML Ruby Support, then go to the Ruby Appearance tab, and then near the bottom select "Expand to Ruby height"
+    * Video lessons more or less work reliably, without crashing due to the dialogue tab.
+    * Creates a vocabulary mp3 file. This should be especially useful for old lessons missing an Audio Review, and also for learning the additional vocabulary.
+
+  * *August 14, 2008*
+    * Bopomofo HTML documents.
+    * HTML documents with literal English translation.
+
+  * *July 20, 2008*
+    * Fixes a bug that occurred when dealing with English words involving apostrophes, for example the Aussie Rules lesson expansion sentence "Don't leave, OK?".
+
+  * *July 19, 2008*
+    * The program creates an html document containing traditional characters.
+    * Punctuation is included in the Pinyin.
+
+  * *June 30, 2008*
+    * The program is now called welovechinesepod.py. All media is now stored in an automatically generated subfolder named after the lesson.
+    * There is a logging feature so that when the program doesn't work we can debug it.
+    * It doesn't redownload material in case you download the same lesson more than once.
+    * The mp3 files now work much better - they worked with every single media player I tested them with, and the technique used should also work on the Mac.
+    * The mp3 ID3 tags no longer contain useless information such as "Use Mp3Splt to obtain original tracks".
+    * Advanced lessons with 汉字 names can now be downloaded with no problem. In Windows, you probably cannot type 汉字 into the command line, you will need to add these via the text file lessons.txt, and make sure to save it in the UTF-8 encoding (this should be an option in Notepad when you save the text file).
