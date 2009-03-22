@@ -2,6 +2,18 @@
 #labels Featured
 
 = WLCP ChangeLog =
+  * *Version 2009.03.22* (jwlee)
+    * necessitated by the ChinesePod site upgrade, significant amounts of the WLCP code, most notably the parser, have been rewritten
+      * the parser now checks for duplicated vocabulary
+      * the downloader now checks for incorrect lesson names
+      * small changes to the XML format
+    * the WLCP-generated study pages now have
+      * toggle buttons (implemented via JavaScript and CSS) to select traditional/simplified Chinese characters, tooltips or pinyin/bopomofo annotation and show or hide various other textual elements
+      * the pinyin/bopomofo/literal annotations are now implemented with standard HTML and CSS tables, offering significant speed and compatibility as a result of not needing the Ruby plugin
+      * links to HTML transcripts
+      * links to generated lesson index
+    * bopomofo table updated to support the ㄩ symbol
+
   * *Version 2009.02.09* (jwlee)
     * *Usage note:* The entire directory structure has been overhauled since WeLoveChinesePod 2008.10.19.testing.  Lessons are now stored (by default) in a sub-folder called "lessons", and the "settings.txt" file has been replaced by a much more comprehensive "wlcpod.ini" file that allows for considerable tweaking. (As always, things seem to work best under Firefox.)
     * WLCPod also now generates a pretty looking list of downloaded lessons. By default, these are:
