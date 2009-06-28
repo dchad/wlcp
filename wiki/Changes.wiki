@@ -4,18 +4,18 @@
 = WLCP ChangeLog =
 
   * *Version 2009.06.26* (DerekChadwick)
-* Added two extra play buttons to the XML file for the expansion and
+    * Added two extra play buttons to the XML file for the expansion and
 vocabulary MP3 files.
 
-* Added more URL validation to skip MP3 files with malformed URLs.
+    * Added more URL validation to skip MP3 files with malformed URLs.
 
-* Added lesson validation to skip bad lesson names and extra lessons.
+    * Added lesson validation to skip bad lesson names and extra lessons.
 
-* Added XML validation to remove ampersands that produced invalid XML pages.
+    * Added XML validation to remove ampersands that produced invalid XML pages.
 
-* Added simplified and traditional html transcript download functions.
+    * Added simplified and traditional html transcript download functions.
 
-* Added current working directory paths so WLCP can be run from any
+    * Added current working directory paths so WLCP can be run from any
 directory and the lesson files will be downloaded to that directory.
 
   * *Version 2009.03.22* (jwlee)
