@@ -2,6 +2,8 @@
 #labels Featured
 
 = WLCP ChangeLog =
+  * *Version 2009.09.12* (DerekChadwick)
+    * Fixed problems downloading PDF and main lesson mp3 files.
 
   * *Version 2009.06.26* (DerekChadwick)
     * Added two extra play buttons to the XML file for the expansion and vocabulary MP3 files.
