@@ -1,0 +1,61 @@
+/* wlcpod.css -- jwlee, March 22/09 */
+
+/* ===== font selections ===== */
+
+tooltip-trad { font-size: 200%;
+	font-family: "AR PL ShanHeiSun Uni", "BiauKai" }
+tooltip-simp { font-size: 150%;
+	font-family: "AR PL ShanHeiSun Uni", "BiauKai" }
+chinese-text { font-size: 175%;
+	font-family: "AR PL ZenKai Uni", "BiauKai" }
+
+/* ===== toggle display elements (controlled by JavaScript) ===== */
+
+chinese-text trad { display: inline }
+chinese-text simp { display: none }
+td.semantic { display: inline }
+td.pinyin { display: none;
+	font-style: italic }
+td.text {display: inline }
+
+td.no-print { }
+noprint { }
+
+word.tooltip { display: inline }
+word.pinyin-annotate { display: none }
+word.bopomofo-annotate { display: none }
+word.annotate { display: none }
+word.plain { display: none }
+
+/* ===== annotations ===== */
+
+word.annt table { display: inline;
+	text-align: center;
+	padding-right: 0px }
+
+word.annt table caption { caption-side: bottom;
+	font-size: 85% }
+
+td.pinyin-annt { font-size: 85%;
+	font-style: italic }
+td.bopomofo-annt { font-size: 85%;
+	font-family: "AR PL ZenKai Uni", "BiauKai" }
+td.literal-annt { font-size: 85% }
+
+/* ===== tooltip CSS ===== */
+
+word { position: relative; }
+word tip { display: none; }
+word:hover tip {
+	position: absolute;
+	display: block;
+	background-color: yellow;
+	border: 2px solid blue;
+	text-align: center;
+	top:1em; left:-4em; width:20em;
+	z-index: 1;
+}
+
+/* ===== other ===== */
+
+td.col { padding-right: 4em; }

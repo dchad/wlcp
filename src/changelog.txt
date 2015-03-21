@@ -1,0 +1,103 @@
+* Version 2009.09.12 (DerekChadwick)
+============================
+
+- Added fixes for the URL changes that prevented downloading of 
+the main lesson files and PDFs.
+
+* Version 2009.06.26 (DerekChadwick)
+============================
+
+- Added two extra play buttons to the XML file for the expansion and
+vocabulary MP3 files.
+
+- Added more URL validation to skip MP3 files with malformed URLs.
+
+- Added lesson validation to skip bad lesson names and extra lessons.
+
+- Added XML validation to remove ampersands that produced invalid XML pages.
+
+- Added simplified and traditional html transcript download functions.
+
+- Added current working directory paths so WLCP can be run from any
+directory and the lesson files will be downloaded to that directory.
+
+* Version 2009.03.22 (jwlee)
+============================
+
+  o necessitated by the ChinesePod? site upgrade, significant amounts
+of the WLCP code, most notably the parser, have been rewritten
+	+ the parser now checks for duplicated vocabulary
+	+ the downloader now checks for incorrect lesson names
+	+ small changes to the XML format 
+  o the WLCP-generated study pages now have
+	+ toggle buttons (implemented via JavaScript? and CSS) to
+select traditional/simplified Chinese characters, tooltips or pinyin/bopomofo
+annotation and show or hide various other textual elements
+	+ the pinyin/bopomofo/literal annotations are now implemented
+with standard HTML and CSS tables, offering significant speed and
+compatibility as a result of not needing the Ruby plugin
+	+ links to HTML transcripts
+	+ links to generated lesson index 
+  o bopomofo table updated to support the ㄩ symbol Changes for new WLCPod
+
+Changes for WLCPod 2009.02.09
+
+Usage note
+==========
+The entire directory structure has been overhauled since
+WeLoveChinesePod 2008.10.19.testing.  Lessons are now stored
+(by default) in a sub-folder called "lessons", and the "settings.txt"
+file has been replaced by a much more comprehensive "wlcpod.ini" file
+that allows for considerable tweaking.
+
+WLCPod also now generates a pretty looking list of downloaded lessons.
+By default, these are:
+- lessons/wlcpod-index.xml: a list of lessons downloaded the last time
+	WLCPod was run
+- lessons/wlcpod-master-index.xml: a list of all lessons ever downloaded
+	(at least, since switching to this version!)
+The idea is that one can simply bookmark these two pages in Firefox, and
+then use them as starting pages when searching for WLCPod'ed lessons
+instead of manually hunting down directories -- hopefully the lesson
+pictures and descriptions make recognizing already studied lessons easier!
+
+As always, things seem to work best under Firefox.
+
+Absent-mindedness fix
+=====================
+
+- the file player_mp3_maxi.swf, required for sound support in the WLCPod
+	pages, is now actually included
+
+Behavioural changes
+===================
+
+- more robust -- doesn't crash with traditional_html is missing or when
+	simplified_html misses structure; also, continues on more gracefully
+	for a lesson when an individual tab is bad
+- better network error handling -- instead of crashing, now retries
+	after a socket times out or other urlopen error occurs
+- bug fix: get-[tab]-sentence-mp3s options in wlcpod.ini now properly
+	control MP3 amalgamation; get-simplified-pdf and get-traditional-pdf
+	options now work as well
+- includes previously downloaded MP3s when concatenating together to form *-sentences.mp3; also, doesn't crash when an empty MP3 filename in specified in CPod HTML
+
+Interface changes
+=================
+
+- fixed punctuation sizes; also now defaults to better font if installed
+	("AR PL ZenKai Uni" on Linux and Windows and "BiauKai" on MacOS)
+- wlcpod.ini is more readable with better documentation
+- can now specify lessons and index files in wlcpod.ini
+- rendered WLCPod page now has links to lesson transcript PDFs
+
+Parsing changes
+===============
+
+- pronunciation now uses the same spacing as that on ChinesePod's website,
+	as some pinyin combinations like yángé cannot be unambiguously
+	broken up; as a result, displayed pinyin should also be correct
+	(but bopomofo, when enabled, might not be)
+- bug fix: in vocabulary sections, fixed problem where incorrect
+	traditional characters were found when one pinyin entry occurs
+	as a substring of a previous one
